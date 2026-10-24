@@ -1,0 +1,52 @@
+Coding. I don't know any coding of website, but I have a passion to make a website. So in this way, uh, what is the best thing I can do? Like, uh, can I use AI to design the website? But it's it doesn't look professional website. How like how a professional website maker look? And also. Uh, what kind of website should I make for myself so that I'll be whenever I'm I'll be going to the client what what what the questions should I ask customer I need a record for that so I cannot go and write down whatever customers want to do and I need a preview for that okay so my plan is I'll make a website. Uh, that website will ask all the questions related to website, how it looks, how it functions, etc., etc. So that it will be uh, putting all the details into the sheet, and then I will be putting that sheet details into the AI. Then the AI will give me. Uh, review. In that way, I can show the customer how the cust- uh, website looks. What are the additional things we need to add in this? and after rewiew what ever customer adds next i can pastinto the my website to improve the website, when ever the customer as me to improve it i can just put in the website and it will automatically reflect into the sheets both ways that website can update read and past changes, in the website
+the website should ask every questions from fonst, colour showing colour pallete in the website itself fonts options also,
+i need full range of colours and, more fonts which are mostly used in websites, in review and copy we can add more corrections by typing,
+the preview should be hower even if we scroll down also it should be visible on top after we pass the colours
+in mobile phones, or tabs the preview shoukd be on top in laptops it should be right side, preview should be about a page
+for photoes there should be upload button for hero for photo1, photo2,ect, if logo available then upload option, now for photoes they should also past in sheets with its place holder name like hero, photo1 photo 2 ect,
+when i select the colours from pick your own colours  it should reflect in  or build your own(any colour):,
+
+
+
+
+
+
+
+
+
+
+prompt
+You are a professional web designer and front-end developer. Build a complete, ready-to-use website for my client using the requirements below.
+
+REQUIREMENTS FROM THE CLIENT FORM:
+[PASTE SUMMARY HERE]
+
+WHAT TO BUILD
+Create a responsive website in plain HTML, CSS and JavaScript (no frameworks), as three files: index.html, style.css and script.js.
+
+The layout must match the preview I showed the client:
+1. Menu bar at the top: logo (if provided) and business name on the left, the pages the client chose as links on the right. On phones, turn the menu into a hamburger button.
+2. Hero banner: a big heading with the business name, one short line from the business description, and a button. The button text depends on the goal: "Call now" for phone calls, "Book now" for bookings, "Shop now" for selling, otherwise "Get in touch". Use the hero photo as the background with a dark overlay so the text stays readable. If there is no hero photo, use the main colour as the background.
+3. Services section: three cards with an accent-colour top border. Write service names and short descriptions based on what the business does.
+4. Gallery section: show the photos in a neat grid, only if photos are provided.
+5. Contact section: a form with name, phone and message, plus the address and phone if given. Include a WhatsApp button if the client asked for one.
+6. Footer in the main colour, with a copyright line and the business name.
+
+DESIGN RULES
+- Use exactly the colours from the summary: main colour for the hero, menu text and footer, accent colour for buttons and card borders, background colour for the page. If a text colour is given, use it for the text. If not, choose dark or light text so it is easy to read on the background. Put all colours in CSS variables at the top of style.css.
+- Use the heading font and the body font from the summary, loaded from Google Fonts. If the body font says "Not sure", use Inter.
+- Follow the "Overall feel" answer. Luxury and Classic mean sharp corners and more spacing. Friendly means very round corners. Modern means clean and simple.
+- Use lots of white space and consistent spacing, and no more than two fonts.
+- Use these image file names exactly: logo, hero, photo1, photo2, photo3, photo4, and any further photos, with the extensions listed in the summary. Put them in an images/ folder. Never use other stock photos. If a photo is missing, use a plain colour block instead.
+- It must look good and work on phones, tablets and laptops.
+
+EXTRA FEATURES
+- Add the features listed in the summary and skip the ones not listed.
+- The contact form must send its data to a Google Sheet. Write the form submit code in script.js using a placeholder called GOOGLE_SCRIPT_URL, and also give me the Google Apps Script code to paste into the sheet.
+- Add basic SEO: page title, meta description, and alt text for every image.
+- Apply every item written under "Corrections / changes requested" in the summary.
+
+OUTPUT
+1. Give me the full code of each file, one after the other, with the file name above each.
+2. Then give me short, simple steps to open the website on my computer and to put it online.
+3. Do not explain the code. Assume I do not know coding.

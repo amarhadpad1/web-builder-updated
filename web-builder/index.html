@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Client Website Planner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+
+<!-- LIVE PREVIEW -->
+<aside id="previewBox">
+  <div class="pvwrap">
+    <div class="pvbar"><i></i><i></i><i></i>&nbsp;Live preview of the website</div>
+    <div id="pvTabs" class="pvtabs"></div>
+    <div id="pv"></div>
+  </div>
+</aside>
+
+<!-- FORM -->
+<main id="formBox">
+  <div class="card">
+    <h1>Client Website Planner</h1>
+    <p class="sub">Fill this in with your client. The preview updates as you go. Nothing is kept on this device, so the page starts empty every time. Press Save to Sheet under the Summary to keep a client.</p>
+    <div class="row">
+      <button class="btn alt" id="bNew">New client</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>1. About the business</h2>
+    <label class="l">Project name (used to find this client in the sheet)</label>
+    <input type="text" data-k="id" placeholder="e.g. Sharma Dental Clinic">
+    <div class="two">
+      <div><label class="l">Client name</label><input type="text" data-k="client"></div>
+      <div><label class="l">Business name</label><input type="text" data-k="bizName"></div>
+    </div>
+    <label class="l">What does the business do?</label>
+    <textarea data-k="desc" placeholder="Short description, in the client's own words"></textarea>
+    <label class="l">Type of business</label>
+    <input type="text" data-k="type" placeholder="e.g. restaurant, salon, plumber, shop">
+    <label class="l">Main goal of the website</label>
+    <div class="chips" data-single="goal"></div>
+    <label class="l">Pages needed</label>
+    <div class="chips" data-multi="pages"></div>
+  </div>
+
+  <div class="card">
+    <h2>2. Overall feel</h2>
+    <p class="sub">Luxury and Classic = sharp corners. Friendly = very round. Modern = clean and simple.</p>
+    <div class="chips" data-single="feel"></div>
+  </div>
+
+  <div class="card">
+    <h2>3. Layout style</h2>
+    <p class="sub">Choose how the website is arranged. Each layout looks different, so client websites do not all look the same. The preview and the AI prompt follow your choice.</p>
+    <div class="layouts" id="layouts"></div>
+  </div>
+
+  <div class="card">
+    <h2>4. Fonts</h2>
+    <label class="l">Heading font</label>
+    <div class="fonts" id="fontH"></div>
+    <label class="l">Body font</label>
+    <div class="fonts" id="fontB"></div>
+  </div>
+
+  <div class="card">
+    <h2>5. Colours</h2>
+    <p class="sub">Pick a ready-made palette. Each one has a main colour, accent, background, text and muted surface colour. Use about 60% background, 30% secondary surfaces and 10% accent.</p>
+    <div class="pals" id="palettes"></div>
+    <details style="margin-top:12px"><summary>Colours for different types of websites (guide)</summary>
+      <table class="guide"><tr><th>Website or brand</th><th>Recommended colours</th></tr>
+      <tr><td>Creative or branding agency</td><td>Black, cream, orange</td></tr>
+      <tr><td>Premium web design agency</td><td>Black, ivory, gold</td></tr>
+      <tr><td>AI or technology startup</td><td>Navy, electric blue, white</td></tr>
+      <tr><td>SaaS or web application</td><td>Slate, blue, light grey</td></tr>
+      <tr><td>E-commerce store</td><td>White, charcoal, one strong accent</td></tr>
+      <tr><td>Finance or business</td><td>Navy, forest green, white</td></tr>
+      <tr><td>Healthcare or wellness</td><td>Teal, sage, white</td></tr>
+      <tr><td>Fashion or luxury</td><td>Black, burgundy, champagne</td></tr>
+      <tr><td>Personal portfolio</td><td>Monochrome with one accent</td></tr>
+      <tr><td>Youthful startup</td><td>Violet, coral, off-white</td></tr></table>
+      <p class="sub">These are common design conventions, not universal preferences. The audience, industry and quality of the design matter more than any one colour.</p>
+    </details>
+    <details style="margin-top:12px"><summary>Fine-tune colours (optional)</summary>
+      <p class="sub">Drag on the wheel, use the slider, or type a hex code.</p>
+      <div id="colors"></div>
+    </details>
+    <div id="logoPal" class="logopal" hidden></div>
+    <p class="sub" id="logoHint" style="margin-top:12px">Colours found in the client logo will appear here after you upload a logo in step 6.</p>
+  </div>
+
+  <div class="card">
+    <h2>6. Photos and logo</h2>
+    <p class="sub">Photos appear in the preview. In the sheet they are saved by placeholder name (logo, hero, photo1, photo2...).</p>
+    <div id="photos"></div>
+    <div class="row" style="margin-top:10px">
+      <button class="btn alt sm" id="addPhoto">+ Add another photo</button>
+      <button class="btn alt sm" id="dlPhotos">Download photos with the right names</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>7. Contact details</h2>
+    <div class="two">
+      <div><label class="l">Phone</label><input type="tel" data-k="phone"></div>
+      <div><label class="l">Email</label><input type="email" data-k="email"></div>
+    </div>
+    <label class="l">Address</label>
+    <input type="text" data-k="address">
+    <label class="l">WhatsApp number (leave empty if not needed)</label>
+    <input type="tel" data-k="whatsapp">
+  </div>
+
+  <div class="card">
+    <h2>8. Extra features</h2>
+    <div class="chips" data-multi="features"></div>
+  </div>
+
+  <div class="card">
+    <h2>9. Corrections / changes requested</h2>
+    <p class="sub">Type every change the client asks for. Each one is saved to the sheet and added to the AI prompt.</p>
+    <textarea data-k="corrections" style="min-height:120px" placeholder="- Make the logo bigger&#10;- Change the button colour to green"></textarea>
+  </div>
+
+  <div class="card" id="sumCard">
+    <h2>Summary</h2>
+    <p class="sub">This updates as you fill in the form. It is what gets saved to the sheet and added to the AI prompt.</p>
+    <textarea id="sumBox" readonly style="min-height:260px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px"></textarea>
+    <div class="row" style="margin-top:8px"><button class="btn alt" id="bSummary2">Copy summary</button><button class="btn alt" id="bPrompt2">Copy AI prompt</button><button class="btn saveBtn" id="bSave">Save to Sheet</button></div>
+    <p class="sub saveStat" style="margin:8px 0 0"></p>
+  </div>
+
+  <div class="card">
+    <h2>Paste changes in</h2>
+    <p class="sub">Paste the full summary (or just the lines you changed, like "Main colour: #aa0000") and it updates the form, preview and sheet.</p>
+    <textarea id="importBox" placeholder="Main colour: #aa0000&#10;Heading font: Lora"></textarea>
+    <div class="row" style="margin-top:8px"><button class="btn" id="bImport">Apply to form</button></div>
+  </div>
+</main>
+</div>
+<div id="toast"></div>
+<script src="script.js"></script>
+<script src="safety.js"></script>
+<script src="sitegen.js"></script>
+<script src="config.js"></script>
+<script src="cloud.js"></script>
+</body>
+</html>
